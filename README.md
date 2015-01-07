@@ -1,6 +1,6 @@
-# DeepSlice
+# deep_slice
 
-TODO: Write a gem description
+Like `Hash.slice` from ActiveSupport, but allows for slicing nested keys.
 
 ## Installation
 
@@ -18,7 +18,38 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Take the following hash as an example
+
+```ruby
+h ={
+  :a => 1,
+  :b => { :c => 2, :d => 3, :z => -1 },
+  :e => {
+    :f => { :g => 4, :h => 5 }
+  },
+  :d => nil
+}
+```
+
+Normal hash slicing works:
+
+```ruby
+h.deep_slice(:a, :d)
+  => {:a => 1, :d => nil}
+```
+
+You can slice to any depth:
+```ruby
+h.deep_slice(:e => {:f => :g})
+  => {:e => {:f => {:g => 4}}}
+```
+
+Arrays of hash keys can be specified at any depth:
+```ruby
+h.deep_slice(:a, :b => [:c, :d])
+  => {:a => 1, :b => {:c => 2, :d => 3}}
+```
+
 
 ## Contributing
 

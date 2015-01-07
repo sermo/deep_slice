@@ -20,7 +20,7 @@ describe Hash do
     expect(hash.deep_slice(:b => :c)).to eq({:b => {:c => 2}})
   end
 
-  it 'slices depth thre keys' do
+  it 'slices depth three keys' do
     expect(hash.deep_slice(:e => {:f => :g})).to eq({:e => {:f => {:g => 4}}})
   end
 
