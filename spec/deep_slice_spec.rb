@@ -8,6 +8,10 @@ describe Hash do
       :e => {
         :f => { :g => 4, :h => 5 }
       },
+      :i => [
+        {:j => 6, :k => 7},
+        {:j => 8, :k => 9}
+      ],
       :d => nil
     }
   end
@@ -30,5 +34,9 @@ describe Hash do
 
   it 'handles arrays of slice values' do
     expect(hash.deep_slice(:b => [:c, :z])).to eq({:b => {:c => 2, :z => -1}})
+  end
+
+  it 'slices values out of arrays' do
+    expect(hash.deep_slice(:i => :j)).to eq({:i => [{:j => 6}, {:j => 8}]})
   end
 end

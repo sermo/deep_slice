@@ -1,4 +1,4 @@
-require "deep_slice/version"
+require 'deep_slice/version'
 
 class Hash
   def deep_slice(*keys)
@@ -12,10 +12,10 @@ class Hash
           if has_key?(sub_key)
             recursive_keys = key[sub_key]
             result[sub_key] = \
-              if recursive_keys.is_a?(hash_klass)
-                self[sub_key].deep_slice(recursive_keys)
+              if self[sub_key].is_a?(Array)
+                self[sub_key].map { |val| val.deep_slice(*[recursive_keys].flatten) }
               else
-                self[sub_key].deep_slice(*Array(recursive_keys))
+                 self[sub_key].deep_slice(*[recursive_keys].flatten)
               end
           end
         end
