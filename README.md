@@ -1,5 +1,7 @@
 # deep_slice
 
+[![Build Status](https://api.travis-ci.org/sermo/deep_slice.svg?branch=master)](https://travis-ci.org/sermo/deep_slice)
+
 Like `Hash.slice` from ActiveSupport, but allows for slicing nested keys.
 
 ## Installation
