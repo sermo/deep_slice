@@ -27,6 +27,10 @@ h ={
   :e => {
     :f => { :g => 4, :h => 5 }
   },
+  :i => [
+    {:j => 6, :k => 7},
+    {:j => 8, :k => 9}
+  ],
   :d => nil
 }
 ```
@@ -50,6 +54,11 @@ h.deep_slice(:a, :b => [:c, :d])
   => {:a => 1, :b => {:c => 2, :d => 3}}
 ```
 
+Keys can be sliced out of arrays at any depth:
+```ruby
+h.deep_slice(:i => :k)
+  => {:i => [{:k => 7}, {:k => 9}]}
+```
 
 ## Contributing
 
