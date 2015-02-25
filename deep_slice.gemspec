@@ -8,7 +8,7 @@ Gem::Specification.new do |spec|
   spec.version       = DeepSlice::VERSION
   spec.authors       = ['John Iacona']
   spec.email         = ['john.iacona@sermo.com']
-  spec.summary       = %q{Slice deeply}
+  spec.summary       = %q{Like `Hash.slice` from ActiveSupport, but allows for slicing nested keys.}
   spec.homepage      = 'http://sermo.com'
 
   spec.files         = `git ls-files -z`.split("\x0")
