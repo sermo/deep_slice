@@ -7,7 +7,7 @@ Gem::Specification.new do |spec|
   spec.name          = 'deep_slice'
   spec.version       = DeepSlice::VERSION
   spec.authors       = ['John Iacona']
-  spec.email         = ['john.iacona@worldone.com']
+  spec.email         = ['john.iacona@sermo.com']
   spec.summary       = %q{Slice deeply}
   spec.homepage      = 'http://sermo.com'
 
