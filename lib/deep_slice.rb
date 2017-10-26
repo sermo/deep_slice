@@ -13,9 +13,11 @@ class Hash
             recursive_keys = key[sub_key]
             result[sub_key] = \
               if self[sub_key].is_a?(Array)
-                self[sub_key].map { |val| val.deep_slice(*[recursive_keys].flatten) }
+                self[sub_key].map { |val|
+                  val.deep_slice(*[recursive_keys].flatten) unless val.nil?
+                }
               else
-                 self[sub_key].deep_slice(*[recursive_keys].flatten)
+                self[sub_key].deep_slice(*[recursive_keys].flatten) unless self[sub_key].nil?
               end
           end
         end

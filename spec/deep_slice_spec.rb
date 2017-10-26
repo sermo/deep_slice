@@ -12,7 +12,11 @@ describe Hash do
         {:j => 6, :k => 7},
         {:j => 8, :k => 9}
       ],
-      :d => nil
+      :d => nil,
+      :level1 => {
+        :level2a => nil,
+        :level2b => [nil]
+      }
     }
   end
 
@@ -38,5 +42,13 @@ describe Hash do
 
   it 'slices values out of arrays' do
     expect(hash.deep_slice(:i => :j)).to eq({:i => [{:j => 6}, {:j => 8}]})
+  end
+
+  it 'slices nested nil valued keys' do
+    expect(hash.deep_slice(:level1 => {:level2a => :level3})).to eq({:level1=>{:level2a=>nil}})
+  end
+
+  it 'slices nested nil array valued keys' do
+    expect(hash.deep_slice(:level1 => {:level2b => :level3})).to eq({:level1=>{:level2b=>[nil]}})
   end
 end
