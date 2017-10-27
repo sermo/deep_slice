@@ -7,7 +7,7 @@ Gem::Specification.new do |spec|
   spec.name          = 'deep_slice'
   spec.version       = DeepSlice::VERSION
   spec.authors       = ['John Iacona']
-  spec.email         = ['john.iacona@sermo.com']
+  spec.email         = ['john.iacona@gmail.com']
   spec.summary       = %q{Like `Hash.slice` from ActiveSupport, but allows for slicing nested keys.}
   spec.homepage      = 'http://sermo.com'
 
@@ -16,7 +16,7 @@ Gem::Specification.new do |spec|
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ['lib']
 
-  spec.add_development_dependency 'rake', ' ~> 10.3'
-  spec.add_development_dependency 'pry', '~> 0.9'
-  spec.add_development_dependency 'rspec', '~> 2.14'
+  spec.add_development_dependency 'rake', ' ~> 12.2'
+  spec.add_development_dependency 'pry', '~> 0.11'
+  spec.add_development_dependency 'rspec', '~> 3.7'
 end
